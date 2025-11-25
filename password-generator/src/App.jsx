@@ -6,13 +6,14 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState('')
+  const [copied, setCopied] = useState(false)
 
   const passwordRef = useRef(null)
 
 
   const generatePassword = useCallback(() => {
     let pass = ''
-    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz'
+    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
     if (numberAllowed) str += '0123456789'
     if (charAllowed) str += '~!@#$%^&*()-_+={}[]|\:<>,.?/'
@@ -21,15 +22,19 @@ function App() {
       const char = Math.floor(Math.random() * str.length + 1)
       pass += str.charAt(char)
 
-      setPassword(pass)
-
+      
     }
+    setPassword(pass)
 
   }, [length, numberAllowed, charAllowed])
 
   const copyPasswordToClipboard = () => {
     window.navigator.clipboard.writeText(password)
     passwordRef.current?.select()
+    setCopied(true)
+    setTimeout(() => {
+    setCopied(false)
+  }, 1500)
   }
 
 
@@ -43,8 +48,8 @@ function App() {
       <h1 className='text-white text-center my-3'>Password Generator</h1>
 
       <div className='flex shadow rounded-lg overflow-hidden mb-4'>
-        <input type="text" value={password} className='outline-none w-full py-1 px-3 bg-white' readOnly placeholder='Password' ref={passwordRef} />
-        <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 cursor-pointer' onClick={copyPasswordToClipboard}>Copy</button>
+        <input type="text" value={password} className='outline-none w-full py-1 px-3 bg-white' readOnly placeholder='Password' ref={passwordRef}/>
+        <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 cursor-pointer' onClick={copyPasswordToClipboard}>{copied ? "Copied" : "Copy"}</button>
       </div>
 
       <div className='flex text-sm gap-x-2'>
