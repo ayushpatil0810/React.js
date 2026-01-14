@@ -4,11 +4,11 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router'
 import Layout from './Layout.jsx'
-import Home from './assets/components/Home/Home.jsx'
-import About from './assets/components/About/About.jsx'
-import Contact from './assets/components/Contact/Contact.jsx'
-import User from './assets/components/User/User.jsx'
-import Github, { githubInfoLoader } from './assets/components/Github/Github.jsx'
+import Home from './components/Home/Home.jsx'
+import About from './components/About/About.jsx'
+import Contact from './components/Contact/Contact.jsx'
+import User from './components/User/User.jsx'
+import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 
 // const router = createBrowserRouter([
 //   {

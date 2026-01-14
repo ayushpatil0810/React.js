@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink } from "react-router";
 export default function Header() {
+    const baseClass =
+        "block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0";
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -12,6 +14,7 @@ export default function Header() {
                             alt="Logo"
                         />
                     </Link>
+
                     <div className="flex items-center lg:order-2">
                         <Link
                             to="#"
@@ -26,6 +29,8 @@ export default function Header() {
                             Get started
                         </Link>
                     </div>
+
+
                     <div
                         className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
@@ -35,7 +40,8 @@ export default function Header() {
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) =>
-                                        `${isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `${isActive ? "text-orange-700" : "text-gray-700"
+                                        } {baseClass}`
                                     }
                                 >
                                     Home
@@ -45,7 +51,8 @@ export default function Header() {
                                 <NavLink
                                     to="/about"
                                     className={({ isActive }) =>
-                                        `${isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `${isActive ? "text-orange-700" : "text-gray-700"
+                                        } {baseClass}`
                                     }
                                 >
                                     About
@@ -53,9 +60,10 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/contact'
+                                    to="/contact"
                                     className={({ isActive }) =>
-                                        `${isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `${isActive ? "text-orange-700" : "text-gray-700"
+                                        } {baseClass}`
                                     }
                                 >
                                     Contact
@@ -63,16 +71,15 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/github'
+                                    to="/github"
                                     className={({ isActive }) =>
-                                        `${isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `${isActive ? "text-orange-700" : "text-gray-700"
+                                        } {baseClass}`
                                     }
                                 >
                                     Github
                                 </NavLink>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -80,4 +87,3 @@ export default function Header() {
         </header>
     );
 }
-
